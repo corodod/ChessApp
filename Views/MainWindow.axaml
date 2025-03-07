@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ChessApp.ViewModels"
+        xmlns:models="using:ChessApp.Models"
+        x:Class="ChessApp.Views.MainWindow"
+        Title="Chess App">
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+
+    <StackPanel Margin="10">
+        <TextBlock Text="Шахматная доска" FontSize="20" />
+        
+        <!-- ListBox для отображения фигур -->
+        <ListBox ItemsSource="{Binding ChessPieces}" x:DataType="vm:MainWindowViewModel">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="models:ChessPiece">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Color}" Margin="0,0,10,0" />
+                        <TextBlock Text="{Binding Position}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</Window>
