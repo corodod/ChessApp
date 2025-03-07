@@ -11,9 +11,9 @@ namespace ChessApp.ViewModels
         {
             ChessPieces = new ObservableCollection<ChessPiece>
             {
-                new Queen("Белый", (0, 0)),
-                new Rook("Чёрный", (7, 7)),
-                new Bishop("Белый", (2, 2))
+                new Queen(ChessColor.White, (0, 0)),
+                new Rook(ChessColor.Black, (7, 7)),
+                new Bishop(ChessColor.White, (2, 2))
             };
         }
     }

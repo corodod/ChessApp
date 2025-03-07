@@ -5,10 +5,10 @@ namespace ChessApp.Models
 {
     public abstract class ChessPiece : INotifyPropertyChanged
     {
-        private string _color = string.Empty;
-        private (int X, int Y) _position = (0, 0);
+        private ChessColor _color; // Используем enum
+        private (int X, int Y) _position = (0, 0); // Инициализация
 
-        public string Color
+        public ChessColor Color
         {
             get => _color;
             protected set
@@ -28,7 +28,10 @@ namespace ChessApp.Models
             }
         }
 
-        protected ChessPiece(string color, (int X, int Y) position)
+        // Свойство для получения имени фигуры
+        public string Name => GetType().Name;
+
+        protected ChessPiece(ChessColor color, (int X, int Y) position)
         {
             Color = color;
             Position = position;
@@ -51,7 +54,7 @@ namespace ChessApp.Models
 
         public override string ToString()
         {
-            return $"{Color} {GetType().Name} на ({Position.X}, {Position.Y})";
+            return $"{Color} {Name} на ({Position.X}, {Position.Y})";
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

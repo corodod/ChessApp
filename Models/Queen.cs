@@ -4,7 +4,7 @@ namespace ChessApp.Models
 {
     public class Queen : ChessPiece
     {
-        public Queen(string color, (int X, int Y) position) : base(color, position) { }
+        public Queen(ChessColor color, (int X, int Y) position) : base(color, position) { }
 
         protected override bool CanMove((int X, int Y) newPosition)
         {
