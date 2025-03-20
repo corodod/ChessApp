@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Task2.ViewModels"
+        xmlns:models="using:Task2.Models"
+        xmlns:viewModels="clr-namespace:Task2.ViewModels"
+        x:Class="Task2.Views.MainWindow"
+        Title="Trolleybus App"
+        x:DataType="viewModels:MainWindowViewModel">
+
+    <Design.DataContext>
+        <viewModels:MainWindowViewModel />
+    </Design.DataContext>
+
+    <StackPanel Margin="10">
+        <TextBlock Text="Figures:" FontSize="16" FontWeight="Bold" />
+        <ListBox ItemsSource="{Binding Figures}" SelectedItem="{Binding SelectedItem}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding Color}" />
+                        <TextBlock Text="{Binding Position.PositionString}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <NumericUpDown Text="X" Value="{Binding XValue}"/>
+        <NumericUpDown Text="Y" Value="{Binding YValue}"/>
+        <Button Content="Move" Command="{Binding MoveSelected}"></Button>
+        <TextBlock Text="{Binding ErrorText}"/>
+</StackPanel>
+</Window>

@@ -1,0 +1,25 @@
+# IDE-specific
+.idea/
+.vs/
+.vscode/
+
+# Build artifacts
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.DotSettings.user
+
+# NuGet и зависимости
+packages/
+*.nupkg
+
+# Файлы Avalonia
+avalonia.xml
+
+# Логи и кэши
+/logs
+/.vs
+/.ionide
